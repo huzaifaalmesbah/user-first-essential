@@ -29,21 +29,15 @@ After activating the plugin, go to the 'UFE' menu in your WordPress dashboard. T
 No, the removal of default content like plugins, themes, posts, and pages is irreversible. Make sure to back up your data before using this plugin.
 
 ## Changelog
+### 1.1
+
+- Fix: Deprecated: Function get_page_by_title is deprecated since version 6.2.0! Use WP_Query instead.
+- Fix: Setting Page location Change to Under tools
+- Add: ✔ Setting Page After Change or already Set
 
 ### 1.0
 
 - Initial release.
-
-## Upgrade Notice
-
-### 1.0
-
-This is the first release of User First Essential.
-
-## Screenshots
-
-![Plugin Settings Page](screenshot.png)
-_Screenshots of the plugin settings page and options._
 
 ## Contribute
 

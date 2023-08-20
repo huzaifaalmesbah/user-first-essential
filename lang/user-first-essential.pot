@@ -1,9 +1,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: User First Essentials\n"
+"Project-Id-Version: User First Essential\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-16 09:11+0000\n"
+"POT-Creation-Date: 2023-08-20 07:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -13,12 +13,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.4; wp-6.3\n"
+"X-Loco-Version: 2.6.4; wp-6.3.1-alpha-56375\n"
 "X-Domain: user-first-essential"
-
-#: user-first-essential.php:71
-msgid "Actions"
-msgstr ""
 
 #. Author URI of the plugin
 msgid "https://huzaifa.im"
@@ -32,37 +28,41 @@ msgstr ""
 msgid "Huzaifa Al Mesbah"
 msgstr ""
 
-#: user-first-essential.php:50
+#: user-first-essential.php:56
 msgid "Permalink Settings"
 msgstr ""
 
-#: user-first-essential.php:73
-msgid "Remove All"
-msgstr ""
-
-#: user-first-essential.php:69
+#: user-first-essential.php:84
 msgid "Remove Default \"Hello World\" Post and \"Sample Page\""
 msgstr ""
 
-#: user-first-essential.php:59
+#: user-first-essential.php:65
+msgid "Remove Default Plugins"
+msgstr ""
+
+#: user-first-essential.php:67
 msgid "Remove Default Plugins (Hello Dolly and Akismet)"
 msgstr ""
 
-#: user-first-essential.php:56
-msgid "Remove Default Plugins and Themes"
-msgstr ""
-
-#: user-first-essential.php:66
+#: user-first-essential.php:81
 msgid "Remove Default Posts and Pages"
 msgstr ""
 
-#: user-first-essential.php:63
+#: user-first-essential.php:72
+msgid "Remove Default Themes"
+msgstr ""
+
+#: user-first-essential.php:75
 msgid ""
-"Remove Default Themes (Twenty Twenty-One, Twenty Twenty-Two,Twenty Twenty "
+"Remove Default Themes (Twenty Twenty-One, Twenty Twenty-Two, Twenty Twenty "
 "Three)"
 msgstr ""
 
-#: user-first-essential.php:53
+#: user-first-essential.php:91
+msgid "Set All"
+msgstr ""
+
+#: user-first-essential.php:59
 msgid "Set Permalink Structure to Post Name"
 msgstr ""
 
@@ -72,14 +72,15 @@ msgid ""
 "themes, posts, and pages."
 msgstr ""
 
-#: user-first-essential.php:37 user-first-essential.php:38
+#. Parent menu slug (Tools)
+#: user-first-essential.php:38 user-first-essential.php:39
 msgid "UFE"
 msgstr ""
 
-#: user-first-essential.php:48
-msgid "User First Essential Settings"
+#. Name of the plugin
+msgid "User First Essential"
 msgstr ""
 
-#. Name of the plugin
-msgid "User First Essentials"
+#: user-first-essential.php:54
+msgid "User First Essential Settings"
 msgstr ""
