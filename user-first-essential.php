@@ -15,7 +15,7 @@
 
 
 // Prevent direct access to this file.
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
     die( 'Direct access is not allowed.' );
 }
 
@@ -65,7 +65,7 @@ class User_First_Essential_Plugin {
         <h3><?php echo esc_html__( 'Remove Default Plugins', 'user-first-essential' ); ?></h3>
         <label> <input type="checkbox" name="remove_default_plugins" value="yes" />
             <?php echo esc_html__('Remove Default Plugins (Hello Dolly and Akismet)', 'user-first-essential'); ?>
-            <?php if ( !$hello_dolly_active && !$akismet_active ) : ?>
+            <?php if ( ! $hello_dolly_active && ! $akismet_active ) : ?>
             <span style="color: green; margin-left: 5px;">&#10004;</span>
             <?php endif; ?>
         </label>
