@@ -1,5 +1,6 @@
 === User First Essential ===
 Contributors: huzaifaalmesbah
+Donate link: https://huzaifa.im/donate
 Tags: permalink, default plugins, default themes, default posts, default pages
 Requires at least: 5.6
 Tested up to: 6.3
@@ -36,6 +37,7 @@ No, the removal of default content like plugins, themes, posts, and pages is irr
 
 == Changelog ==
 = 1.1 =
+* Fix: WordPress Coding Standards.
 * Fix: Deprecated: Function get_page_by_title is deprecated since version 6.2.0! Use WP_Query instead.
 * Fix: Setting Page location Change to Under tools
 * Add: ✔ Setting Page After Change or already Set
@@ -45,6 +47,11 @@ No, the removal of default content like plugins, themes, posts, and pages is irr
 == Screenshots ==
 
 1. Screenshots of the plugin settings page and options.
+
+== Upgrade Notice ==
+
+= 1.1 =
+Users are recommended to update to version 1.1 for improved coding standards and a more user-friendly experience.
 
 == Contribute ==
 
