@@ -53,6 +53,7 @@ class User_First_Essential_Plugin {
 <div class="wrap">
     <h2><?php echo esc_html__( 'User First Essential Settings', 'user-first-essential' ); ?></h2>
     <form method="post" action="">
+        <?php wp_nonce_field( 'ufe_action', 'ufe_nonce' ); ?>
         <h3><?php echo esc_html__( 'Permalink Settings', 'user-first-essential' ); ?></h3>
         <label>
             <input type="checkbox" name="set_permalink" value="yes" />
@@ -95,7 +96,7 @@ class User_First_Essential_Plugin {
     }
 
     public function handle_form_submission() {
-        if ( isset( $_POST['ufe_remove_all'] ) ) {
+        if ( isset( $_POST['ufe_remove_all'] ) && wp_verify_nonce( $_POST['ufe_nonce'], 'ufe_action' ) ) {
             if ( isset( $_POST['set_permalink'] ) ) {
                 global $wp_rewrite;
                 $wp_rewrite->set_permalink_structure( '/%postname%/' );
