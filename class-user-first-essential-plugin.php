@@ -11,7 +11,10 @@
  * Tested up to: 6.3
  * Requires PHP: 7.0
  * Version: 1.1.1
+ *
+ * @package User_Frist_Essential
  */
+
 // Prevent direct access to this file.
 if ( ! defined( 'ABSPATH' ) ) {
 	die( 'Direct access is not allowed.' );
@@ -30,6 +33,7 @@ class User_First_Essential_Plugin {
 		add_action( 'admin_menu', array( $this, 'add_menu_page' ) );
 		add_action( 'admin_init', array( $this, 'handle_form_submission' ) );
 		add_action( 'admin_init', array( $this, 'check_activation_redirect' ) );
+		register_activation_hook( __FILE__, array( $this, 'ufe_set_activation_flag' ) );
 	}
 	/**
 	 * Text domain load
@@ -68,7 +72,7 @@ class User_First_Essential_Plugin {
 		<label>
 			<input type="checkbox" name="set_permalink" value="yes" />
 			<?php echo esc_html__( 'Set Permalink Structure to Post Name', 'user-first-essential' ); ?>
-			<?php if ( $current_permalink_structure === '/%postname%/' ) : ?>
+			<?php if ( '/%postname%/' === $current_permalink_structure ) : ?>
 			<span style="color: green; margin-left: 5px;">&#10004;</span>
 			<?php endif; ?>
 		</label>
@@ -108,7 +112,7 @@ class User_First_Essential_Plugin {
 	 * Setting Page From Submit handle
 	 */
 	public function handle_form_submission() {
-		if ( isset( $_POST['ufe_remove_all'] ) && wp_verify_nonce( $_POST['ufe_nonce'], 'ufe_action' ) ) {
+		if ( isset( $_POST['ufe_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['ufe_nonce'] ) ), 'ufe_action' ) ) {
 			if ( isset( $_POST['set_permalink'] ) ) {
 				global $wp_rewrite;
 				$wp_rewrite->set_permalink_structure( '/%postname%/' );
@@ -220,15 +224,12 @@ class User_First_Essential_Plugin {
 
 		return true;
 	}
+	/**
+	 * Ufe activation flag
+	 */
+	public function ufe_set_activation_flag() {
+		update_option( 'ufe_plugin_activated', true );
+	}
 }
 
 $user_first_essential_plugin = new User_First_Essential_Plugin();
-
-// Check if the plugin has been activated.
-register_activation_hook( __FILE__, 'ufe_set_activation_flag' );
-/**
- * Ufe activation flag
- */
-function ufe_set_activation_flag() {
-	update_option( 'ufe_plugin_activated', true );
-}
