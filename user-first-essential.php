@@ -10,7 +10,7 @@
  * Requires at least: 5.6
  * Tested up to: 6.3
  * Requires PHP: 7.0
- * Version: 1.1
+ * Version: 1.1.1
  */
 // Prevent direct access to this file.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -33,16 +33,12 @@ class User_First_Essential_Plugin {
 	}
 	/**
 	 * Text domain load
-	 *
-	 * @return void
 	 */
 	public function load_textdomain() {
 		load_plugin_textdomain( 'user-first-essential', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
 	}
 	/**
 	 * Sub menu register
-	 *
-	 * @return void
 	 */
 	public function add_menu_page() {
 		add_submenu_page(
@@ -54,11 +50,9 @@ class User_First_Essential_Plugin {
 			array( $this, 'settings_page' )
 		);
 	}
-/**
- * Plugin Action
- *
- * @return void
- */
+	/**
+	 * Plugin Action
+	 */
 	public function settings_page() {
 		$current_permalink_structure = get_option( 'permalink_structure' );
 		$hello_dolly_active          = is_plugin_active( 'hello-dolly/hello.php' );
@@ -110,11 +104,9 @@ class User_First_Essential_Plugin {
 </div>
 		<?php
 	}
-/**
- * Setting Page From Submit handle
- *
- * @return void
- */
+	/**
+	 * Setting Page From Submit handle
+	 */
 	public function handle_form_submission() {
 		if ( isset( $_POST['ufe_remove_all'] ) && wp_verify_nonce( $_POST['ufe_nonce'], 'ufe_action' ) ) {
 			if ( isset( $_POST['set_permalink'] ) ) {
@@ -136,11 +128,9 @@ class User_First_Essential_Plugin {
 			}
 		}
 	}
-/**
- * Remove Defualt Plugin
- *
- * @return void
- */
+	/**
+	 * Remove Defualt Plugin
+	 */
 	public function remove_default_plugins() {
 		if ( is_plugin_active( 'hello-dolly/hello.php' ) ) {
 			deactivate_plugins( 'hello-dolly/hello.php' );
@@ -152,11 +142,9 @@ class User_First_Essential_Plugin {
 			delete_plugins( array( 'akismet/akismet.php' ) );
 		}
 	}
-/**
- * Remove Defualt Theme
- *
- * @return void
- */
+	/**
+	 * Remove Defualt Theme
+	 */
 	public function remove_default_themes() {
 		$themes_to_remove = array(
 			'twentytwentyone',
@@ -171,11 +159,9 @@ class User_First_Essential_Plugin {
 			}
 		}
 	}
-/**
- * Deafult Post Remove
- *
- * @return void
- */
+	/**
+	 * Deafult Post Remove
+	 */
 	public function remove_default_posts_pages() {
 		// Remove the default "Hello World" post by ID.
 		$hello_world_post_id = 1; // Assuming the ID of "Hello World" post is 1.
@@ -191,11 +177,9 @@ class User_First_Essential_Plugin {
 			wp_delete_post( $sample_page->ID, true );
 		}
 	}
-/**
- * After Active Plugin Redirect
- *
- * @return void
- */
+	/**
+	 * After Active Plugin Redirect
+	 */
 	public function check_activation_redirect() {
 		if ( get_option( 'ufe_plugin_activated' ) ) {
 			delete_option( 'ufe_plugin_activated' );
@@ -204,11 +188,9 @@ class User_First_Essential_Plugin {
 		}
 	}
 
-    /**
-     * Remove Defualt Theme
-     *
-     * @return void
-     */
+	/**
+	 * Remove Defualt Theme
+	 */
 	public function are_default_themes_removed() {
 		// Check if all default themes are removed.
 		$themes_to_remove = array( 'twentytwentyone', 'twentytwentytwo', 'twentytwentythree' );
@@ -221,11 +203,9 @@ class User_First_Essential_Plugin {
 
 		return true;
 	}
-/**
- * Post Remove
- *
- * @return void
- */
+	/**
+	 * Post Remove
+	 */
 	public function are_default_posts_pages_removed() {
 		// Check if default "Hello World" post and "Sample Page" are removed by ID.
 		$hello_world_post_id = 1; // Assuming the ID of "Hello World" post is 1.
@@ -248,8 +228,6 @@ $user_first_essential_plugin = new User_First_Essential_Plugin();
 register_activation_hook( __FILE__, 'ufe_set_activation_flag' );
 /**
  * Ufe activation flag
- *
- * @return void
  */
 function ufe_set_activation_flag() {
 	update_option( 'ufe_plugin_activated', true );
