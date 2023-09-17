@@ -170,14 +170,14 @@ class User_First_Essential_Plugin {
 		// Remove the default "Hello World" post by ID.
 		$hello_world_post_id = 1; // Assuming the ID of "Hello World" post is 1.
 		$hello_world_post    = get_post( $hello_world_post_id );
-		if ( $hello_world_post && $hello_world_post->post_type === 'post' ) {
+		if ( 'post' === $hello_world_post->post_type ) {
 			wp_delete_post( $hello_world_post->ID, true );
 		}
 
 		// Remove the default "Sample Page" by ID.
 		$sample_page_id = 2; // Assuming the ID of "Sample Page" is 2.
 		$sample_page    = get_post( $sample_page_id );
-		if ( $sample_page && $sample_page->post_type === 'page' ) {
+		if ( 'page' === $sample_page->post_type ) {
 			wp_delete_post( $sample_page->ID, true );
 		}
 	}
